@@ -64,7 +64,6 @@ public class UserRoleServiceImpl implements UserRoleService,UserRoleServiceForBl
             UserRole userRole=userRoleMapper.selectRoleById(id);
             User user=accountMapper.getAccountByName(userRole.getUsername());
             userRoleMapper.deleteOneRoleById(id);
-            System.out.println(user.getId());
             accountMapper.deleteAccountById(user.getId());
             return ResponseVO.buildSuccess();
         }catch (Exception e){

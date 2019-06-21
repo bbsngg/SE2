@@ -10,7 +10,6 @@ import static org.junit.Assert.*;
 @SpringBootTest
 @RunWith(SpringRunner.class)
 public class TransactionLogServiceImplTest {
-
     @Test
     public void getTransById() {
     }

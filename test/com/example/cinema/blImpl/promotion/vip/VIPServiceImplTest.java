@@ -14,13 +14,11 @@ public class VIPServiceImplTest {
     @Autowired
     private VIPServiceImpl service;
 
-
     @Test
     public void charge() {
         VIPCardForm vipCardForm = new VIPCardForm();
         vipCardForm.setVipId(1);
         vipCardForm.setAmount(2000);
-
         service.charge(vipCardForm,1);
     }
 }
