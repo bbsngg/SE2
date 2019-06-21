@@ -170,7 +170,19 @@ $(document).ready(function() {
     }
     
     function getUsers() {
-        getRequest()
+        getRequest(
+            '/allUsers',
+            function (res) {
+                var allUsers=res.content;
+                allUsers.forEach(function (user) {
+                    var optionStr="<option value='"+user.id+"'>"+user.name+"</option>";
+                    $("#user-input").append(optionStr);
+                });
+            },
+            function (error) {
+                alert(JSON.stringify(error));
+            }
+        )
     }
     
     function getCoupons() {
