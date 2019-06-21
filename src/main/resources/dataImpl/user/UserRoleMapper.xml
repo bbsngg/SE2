@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.cinema.data.user.UserRoleMapper">
+    <select id="selectUserRoleById" resultMap="UserRole">
+        select * from user_roles where id=#{id}
+    </select>
+
+    <select id="selectRoleByName" resultMap="UserRole">
+        select * from user_roles where username=#{username}
+    </select>
+    
+    <select id="selectAllRoles" resultMap="UserRole">
+        select * from user_roles
+    </select>
+    
+    <delete id="deleteOneRoleById">
+        delete from user_roles where id=#{id}
+    </delete>
+
+    <update id="updateOneRole" parameterType="com.example.cinema.vo.UserRoleForm">
+        update user_roles set username=#{username},role_name=#{roleName}
+        where id=#{id}
+    </update>
+
+    <resultMap id="UserRole" type="com.example.cinema.po.UserRole">
+        <result column="id" property="id"></result>
+        <result column="username" property="username"></result>
+        <result column="role_name" property="roleName"></result>
+    </resultMap>
+
+    <insert id="insertOneRole" parameterType="com.example.cinema.po.UserRole"
+            useGeneratedKeys="true" keyProperty="id">
+        insert into user_roles(username,role_name)
+        values (#{username},#{roleName})
+    </insert>
+</mapper>

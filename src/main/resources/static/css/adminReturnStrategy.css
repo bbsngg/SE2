@@ -1,0 +1,16 @@
+.shit {
+    font-size: 18px;
+}
+
+.strategy-container{
+    border: 4px ridge #c4fbef;
+    background: linear-gradient(#c4fbef,#f2fbf3);
+    border-radius: 10px;
+    padding: 10px 5px 5px 10px;
+}
+
+.beStrong{
+    font-weight: bold;
+    font-size: 18px;
+}
+

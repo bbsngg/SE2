@@ -1,0 +1,33 @@
+target/
+/target/
+!.mvn/wrapper/maven-wrapper.jar
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+/build/
+src/main/resources/application.yml
+*.yml
+src/main/resources/application.yml
+src/main/resources/application.yml
+src/main/java/com/example/cinema/blImpl/user/AccountServiceImpl.java
+src/main/resources/application.yml
+*.yml

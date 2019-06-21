@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.cinema.data.logs.TransactionLogMapper">
+    <select id="selectAllTrans" resultMap="TransLog">
+        select * from transaction_log
+    </select>
+
+    <select id="selectTransById" resultMap="TransLog">
+        select * from transaction_log
+        where id=#{id}
+    </select>
+
+	<insert id="insertTran" parameterType="com.example.cinema.po.TransactionLog"
+	        useGeneratedKeys="true" keyProperty="id">
+        insert into transaction_log(`user_id`,`amount`,`method`,`uses`)
+        values(#{userId},#{amount},#{method},#{uses})
+    </insert>
+
+    <resultMap id="TransLog" type="com.example.cinema.po.TransactionLog">
+        <id column="id" property="id"></id>
+        <result column="user_id" property="userId"></result>
+        <result column="amount" property="amount"></result>
+        <result column="method" property="method"></result>
+        <result column="uses" property="uses"></result>
+        <result column="join_time" property="time"></result>
+    </resultMap>
+</mapper>

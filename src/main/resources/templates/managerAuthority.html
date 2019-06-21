@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>权限管理</title>
+    <link rel="stylesheet" type="text/css" href="/css/common.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/font-awesome.min.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/managerAuthority.css"/>
+
+
+    <script src="/js/jquery.js"></script>
+    <script src="/js/bootstrap.js"></script>
+    <script src="/js/request.js"></script>
+    <script src="/js/managerAuthority.js"></script>
+
+</head>
+<body>
+<div class="main-container">
+    <div class="nav-left-container">
+        <div class="nav-user-container" style="margin-bottom: 50px;">
+            <img class="avatar-lg" src="/images/manager.png" />
+            <p class="title">Manager</p>
+        </div>
+        <ul class="nav nav-pills nav-stacked">
+            <li role="presentation"><a href="/admin/movie/manage"><i class="icon-film"></i> 电影管理</a></li>
+            <li role="presentation"><a href="/admin/session/manage"><i class="icon-calendar"></i> 排片管理</a></li>
+            <li role="presentation"><a href="#"><i class="icon-gift"></i> 活动管理</a></li>
+            <li role="presentation"><a href="/admin/cinema/manage"><i class="icon-cogs"></i> 影院管理</a></li>
+            <li role="presentation"><a href="/admin/cinema/statistic"><i class="icon-bar-chart"></i> 影院统计</a></li>
+            <li role="presentation"><a href="/admin/cinema/returnStrategy"><i class="icon-reply"></i> 退票策略</a></li>
+            <li role="presentation"><a href="/admin/cinema/vipStrategy"><i class="icon-star"></i> 会员策略</a></li>
+            <li role="presentation" id="power" class="active"><a href="/manager/authority"><i class="icon-user"></i> 权限管理</a></li>
+        </ul>
+    </div>
+    <div class="content-container">
+        <div class="content-header">
+            <span class="title gray-text">账号权限管理</span>
+        </div>
+        <table id="account-table">
+            <tr>
+               <th>帐户名</th>
+               <th>权限</th>
+               <th>操作</th>
+            </tr>
+
+        </table>
+    </div>
+</div>
+
+
+<div class="modal fade" id="setAuthority" tabindex="-1" role="dialog" aria-labelledby="movieModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="activytyModalLabel">修改权限</h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal" role="form">
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" for="role-input"><span class="error-text">*</span>权限</label>
+                        <div class="col-sm-10">
+                            <select id="role-input" class="form-control">
+                                <option value="user">user</option>
+                                <option value="admin">admin</option>
+                                <option value="manager">manager</option>
+                            </select>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-primary" id="authority-form-btn">确认</button>
+            </div>
+        </div>
+    </div>
+</div>
+

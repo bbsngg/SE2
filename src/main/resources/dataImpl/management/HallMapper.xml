@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.cinema.data.management.HallMapper">
+    <select id="selectAllHall" resultMap="Hall">
+        select * from hall
+    </select>
+    <select id="selectHallById" resultMap="Hall">
+        select * from hall where id = #{hallId}
+    </select>
+    <insert id="insertOneHall" parameterType="com.example.cinema.vo.HallForm"
+            useGeneratedKeys="true" keyProperty="id">
+        insert into hall(`name`,`row`,`column`)
+        values (#{name},#{row},#{column})
+    </insert>
+    <update id="updateOneHall" parameterType="com.example.cinema.vo.HallForm">
+        update hall set `name`=#{name}, `row`=#{row}, `column`=#{column}
+        where id=#{id}
+    </update>
+    <delete id="deleteOneHall">
+        delete from hall where id=#{hallId}
+    </delete>
+
+    <delete id="deleteHallBatch" parameterType="java.util.List">
+        delete from hall where id in
+        <foreach collection="list" index="index" item="item" open="(" close=")" separator=",">
+            #{item}
+        </foreach>
+    </delete>
+    
+    <resultMap id="Hall" type="com.example.cinema.po.Hall">
+    </resultMap>
+
+</mapper>

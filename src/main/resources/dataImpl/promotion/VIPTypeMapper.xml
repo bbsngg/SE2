@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.cinema.data.promotion.VIPTypeMapper">
+
+    <!--获取所有种类会员卡-->
+    <select id="getAllType" resultMap="VIPType">
+        select * from vip_type
+    </select>
+
+    <insert id="insertOneType" parameterType="com.example.cinema.po.promotion.VIPType"
+            useGeneratedKeys="true" keyProperty="id">
+        insert into vip_type(`name`, `target_amount`, `discount_amount`, `charge_amount`)
+        values(#{name}, #{targetAmount}, #{discountAmount}, #{chargeAmount})
+    </insert>
+
+    <select id="selectTypeById" resultMap="VIPType">
+        select * from vip_type where id=#{id}
+    </select>
+
+    <select id="selectTypeByName" resultMap="VIPType">
+        select * from vip_type where name=#{name}
+    </select>
+
+	<delete id="deleteType">
+        delete from vip_type where id=#{id}
+    </delete>
+
+    <update id="updateType" parameterType="com.example.cinema.po.promotion.VIPType">
+		update vip_type set `name` = #{name}, `target_amount` = #{targetAmount}, `discount_amount` = #{discountAmount}, `charge_amount` = #{chargeAmount}
+        where id=#{id}
+    </update>
+
+    <resultMap id="VIPType" type="com.example.cinema.po.promotion.VIPType">
+        <result column="id" property="id"></result>
+        <result column="name" property="name"></result>
+        <result column="target_amount" property="targetAmount"></result>
+        <result column="discount_amount" property="discountAmount"></result>
+        <result column="charge_amount" property="chargeAmount"></result>
+    </resultMap>
+
+</mapper>
