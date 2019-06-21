@@ -53,7 +53,7 @@ public class VIPServiceImpl implements VIPService, VIPServiceForBl {
             //新增一张会员卡
             int id = vipCardMapper.insertOneCard(vipCard);
             //修改银行卡余额
-            BankCard bankCard=bankAccountService.getBankCardById(cardId);
+            BankCard bankCard = bankAccountService.getBankCardById(cardId);
             double total=vipTypeMapper.getAllType().get(0).getChargeAmount();
             double balance=bankCard.getBalance();
             if(total>balance)

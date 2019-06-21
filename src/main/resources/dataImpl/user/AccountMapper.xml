@@ -11,6 +11,9 @@
     <delete id="deleteAccountById">
         delete from user where id=#{id}
     </delete>
+    <select id="selctAllUsers" resultMap="User">
+        select * from user ;
+    </select>
 
     <resultMap id="User" type="com.example.cinema.po.User">
     </resultMap>
