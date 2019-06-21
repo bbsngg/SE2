@@ -68,7 +68,6 @@ $(document).ready(function() {
                 "    <div class='activity-coupon primary-bg'>" +
                 "        <span class='title'>优惠券："+activity.coupon.name+"</span>" +
                 "        <span class='title'>满"+activity.coupon.targetAmount+"减<span class='error-text title'>"+activity.coupon.discountAmount+"</span></span>" +
-                "        <span class='gray-text'>"+activity.coupon.description+"</span>" +
                 "    </div>" +
                 "</div>";
         });
@@ -190,4 +189,19 @@ $(document).ready(function() {
             }
         )
     }
+    
+    $("#give-form-btn").click(function () {
+        postRequest(
+            '/coupon/giveByUserId?couponId='+$("#coupon-input").val()+'&userId='+$("#user-input").val(),
+            {},
+            function (res) {
+
+                $("#giveModal").modal('hide');
+            },
+            function (error) {
+                alert(JSON.stringify(error));
+            }
+        )
+
+    });
 });

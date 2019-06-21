@@ -33,7 +33,6 @@ public class ActivityServiceImpl implements ActivityService, ActivityServiceForB
     @Transactional
     public ResponseVO publishActivity(ActivityForm activityForm) {
         try {
-            //将优惠券存入 activity数据库
             Coupon coupon = couponService.addCouponForBl(activityForm.getCouponForm());
             //将活动存入 activity数据库
             Activity activity = new Activity();
