@@ -1,6 +1,7 @@
 package com.example.cinema.controller.user;
 
 import com.example.cinema.blImpl.user.AccountServiceImpl;
+import com.example.cinema.blImpl.user.UserRoleServiceForBl;
 import com.example.cinema.config.InterceptorConfiguration;
 import com.example.cinema.vo.UserForm;
 import com.example.cinema.vo.ResponseVO;
@@ -29,6 +30,8 @@ public class AccountController {
     private final static String ACCOUNT_INFO_ERROR="用户名或密码错误";
     @Autowired
     private AccountServiceImpl accountService;
+    @Autowired
+    private UserRoleServiceForBl userRoleService;
 
     /**
      * 登陆账号
@@ -46,7 +49,10 @@ public class AccountController {
         UserRoleVO user=accountService.login(userForm);
         if(user==null)
             return ResponseVO.buildFailure(ACCOUNT_INFO_ERROR);
-        session.setAttribute(InterceptorConfiguration.SESSION_KEY,userForm);
+        String role=userRoleService.getRoleByName(userForm.getUsername());
+//        System.out.println(role);
+//        session.setAttribute(InterceptorConfiguration.SESSION_KEY,userForm);
+        session.setAttribute(InterceptorConfiguration.SESSION_KEY,role);
         return ResponseVO.buildSuccess(user);
     }
 

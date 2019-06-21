@@ -4,12 +4,6 @@ import com.example.cinema.vo.ResponseVO;
 import com.example.cinema.vo.UserRoleForm;
 
 public interface UserRoleService {
-    /**
-     * 根据用户名获取角色
-     * @param username
-     * @return
-     */
-    ResponseVO getRoleByName(String username);
 
     /**
      * 根据账号id获取角色
