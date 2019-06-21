@@ -16,7 +16,6 @@ public class VIPServiceImplTest {
     @Autowired
     private VIPServiceImpl service;
 
-
     @Test
     public void charge() {
         VIPCardForm vipCardForm = new VIPCardForm();

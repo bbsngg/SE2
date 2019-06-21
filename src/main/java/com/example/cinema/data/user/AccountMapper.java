@@ -25,4 +25,11 @@ public interface AccountMapper {
      * @return
      */
     public User getAccountByName(@Param("username") String username);
+
+    /**
+     * 根据id删除账号
+     * @param id
+     * @return
+     */
+    int deleteAccountById(int id);
 }
