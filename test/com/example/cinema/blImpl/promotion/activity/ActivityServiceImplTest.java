@@ -1,5 +1,6 @@
 package com.example.cinema.blImpl.promotion.activity;
 
+import com.example.cinema.po.promotion.Activity;
 import com.example.cinema.vo.promotion.ActivityForm;
 import com.example.cinema.vo.promotion.CouponForm;
 import org.junit.Test;
@@ -34,8 +35,8 @@ public class ActivityServiceImplTest {
         f.setMovieList(movies);
         f.setCouponForm(cf);
         f.setStartTime(new Timestamp(System.currentTimeMillis()));
-        f.setEndTime(new Timestamp(2019, 6, 22, 24, 0, 0, 0));
-        System.out.println(service.publishActivity(f).getContent());
+        f.setEndTime(new Timestamp(119, 6, 22, 24, 0, 0, 0));
+        System.out.println(((Activity)service.publishActivity(f).getContent()).getStartTime());
     }
 
     public CouponForm newCoupon(){
@@ -45,12 +46,13 @@ public class ActivityServiceImplTest {
         cf.setTargetAmount(100.0);
         cf.setDiscountAmount(30.0);
         cf.setStartTime(new Timestamp(System.currentTimeMillis()));
-        cf.setEndTime(new Timestamp(2019, 6, 22, 24, 0, 0, 0));
+        cf.setEndTime(new Timestamp(119, 6, 22, 24, 0, 0, 0));
         System.out.println(cf.getStartTime());
         return cf;
     }
     @Test
     public void getActivities() {
+        System.out.println(service.getActivities().getContent());
     }
 
     @Test
