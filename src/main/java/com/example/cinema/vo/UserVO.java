@@ -25,7 +25,7 @@ public class UserVO {
         this.id = id;
     }
 
-    public String getUbank_cardsername() {
+    public String getUsername() {
         return username;
     }
 

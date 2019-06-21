@@ -74,7 +74,12 @@ public class AccountController {
         session.removeAttribute(InterceptorConfiguration.SESSION_KEY);
         return "index";
     }
-    
+
+    /**
+     * 获取所有用户信息
+     * @return
+     */
+    @ApiOperation(value = "获取所有用户信息")
     @GetMapping("/allUsers")
     public ResponseVO selectAllUsers(){
         return accountService.selectAllUsers();
