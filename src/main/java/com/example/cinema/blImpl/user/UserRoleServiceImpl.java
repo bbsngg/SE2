@@ -22,13 +22,13 @@ public class UserRoleServiceImpl implements UserRoleService,UserRoleServiceForBl
     AccountMapper accountMapper;
 
     @Override
-    public ResponseVO getRoleByName(String username) {
+    public String getRoleByName(String username) {
         try{
             UserRoleVO userRoleVO=new UserRoleVO(userRoleMapper.selectRoleByName(username));
-            return ResponseVO.buildSuccess(userRoleVO);
+            return userRoleVO.getRoleName();
         }catch (Exception e){
             e.printStackTrace();
-            return ResponseVO.buildFailure("根据用户名获取角色失败");
+            return "根据用户名获取角色失败";
         }
     }
 
