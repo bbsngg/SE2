@@ -11,7 +11,7 @@
     <delete id="deleteAccountById">
         delete from user where id=#{id}
     </delete>
-    <select id="selctAllUsers" resultMap="User">
+    <select id="selectAllUsers" resultMap="User">
         select * from user ;
     </select>
 

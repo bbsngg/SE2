@@ -21,6 +21,8 @@ $(document).ready(function() {
 
     getActivities();
 
+    getUsers();
+
     getCoupons();
 
     function getActivities() {
@@ -174,8 +176,9 @@ $(document).ready(function() {
             '/allUsers',
             function (res) {
                 var allUsers=res.content;
+                console.log(allUsers);
                 allUsers.forEach(function (user) {
-                    var optionStr="<option value='"+user.id+"'>"+user.name+"</option>";
+                    var optionStr="<option value='"+user.id+"'>"+user.username+"</option>";
                     $("#user-input").append(optionStr);
                 });
             },
@@ -205,7 +208,10 @@ $(document).ready(function() {
     $("#give-form-btn").click(function () {
         postRequest(
             '/coupon/giveByUserId?couponId='+$("#coupon-input").val()+'&userId='+$("#user-input").val(),
-            {},
+            {
+                // couponId:$("#coupon-input").val(),
+                // userId:$("#user-input").val()
+            },
             function (res) {
 
                 $("#giveModal").modal('hide');
