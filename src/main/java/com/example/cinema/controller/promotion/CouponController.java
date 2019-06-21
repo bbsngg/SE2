@@ -8,6 +8,8 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.websocket.server.PathParam;
+
 /**
  * Created by liying on 2019/4/16.
  */
@@ -43,7 +45,7 @@ public class CouponController {
     })
 
     @PostMapping("/giveByUserId")
-    public ResponseVO giveByUserId(@PathVariable int couponId,@PathVariable int userId) {
+    public ResponseVO giveByUserId(@PathParam("couponId") int couponId, @PathParam("userId") int userId) {
         return couponService.issueCoupon(couponId, userId);
     }
 
