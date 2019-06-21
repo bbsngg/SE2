@@ -2,6 +2,7 @@ package com.example.cinema.blImpl.promotion.activity;
 
 import com.example.cinema.po.promotion.Activity;
 import com.example.cinema.vo.promotion.ActivityForm;
+import com.example.cinema.vo.promotion.ActivityVO;
 import com.example.cinema.vo.promotion.CouponForm;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -52,14 +53,21 @@ public class ActivityServiceImplTest {
     }
     @Test
     public void getActivities() {
-        System.out.println(service.getActivities().getContent());
+        ((List<ActivityVO>)service.getActivities().getContent()).forEach(item-> {
+
+            System.out.println(item.getId());
+        });
     }
 
     @Test
     public void getActivityById() {
+        System.out.println(((ActivityVO)service.getActivityById(14).getContent()).getName());
     }
 
     @Test
     public void selectActivitiesByMovie() {
+        ((List<Activity>)service.selectActivitiesByMovie(11)).forEach(item->{
+            System.out.println(item.getName());
+        });
     }
 }

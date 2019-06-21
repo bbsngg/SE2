@@ -44,7 +44,7 @@ public class RefundStrategyServiceImplTest {
 
     @Test
     public void getRefundStrategyById() {
-        int id = 1;
+        int id = 2;
         RefundStrategyVO vo = (RefundStrategyVO)service.getRefundStrategyById(id).getContent();
         System.out.println(vo.getId());
         System.out.println(vo.getPercent());
