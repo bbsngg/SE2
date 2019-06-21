@@ -8,6 +8,7 @@ html {
 }
 body {
     height: 100%;
+    background-image: url("../images/bg.jpg");
 }
 input {
     width: 250px;
@@ -77,7 +78,7 @@ ul {
 .content-container {
     flex: 1;
     height: 100%;
-    background: #e4e7ea;
+    background-color: rgba(255,255,255,0);
     padding: 20px;
     overflow-y: scroll;
 }
@@ -96,7 +97,7 @@ ul {
 }
 .nav-top-container {
     width: 100%;
-    background: #fff;
+    background-color: transparent;
     padding: 5px 20px;
     display: flex;
     justify-content: space-around;
