@@ -33,6 +33,7 @@ public class ActivityServiceImpl implements ActivityService, ActivityServiceForB
     @Transactional
     public ResponseVO publishActivity(ActivityForm activityForm) {
         try {
+            //将优惠券存入 Coupon数据库
             Coupon coupon = couponService.addCouponForBl(activityForm.getCouponForm());
             //将活动存入 activity数据库
             Activity activity = new Activity();
@@ -43,6 +44,8 @@ public class ActivityServiceImpl implements ActivityService, ActivityServiceForB
             activity.setCoupon(coupon);//活动对应的优惠券
             activityMapper.insertActivity(activity);
             //将活动和活动对应的电影存入 activity_movie数据库
+            List<Activity> list = activityMapper.selectActivities();
+            activity = list.get(list.size()-1);
             if(activityForm.getMovieList()!=null&&activityForm.getMovieList().size()!=0){
                 activityMapper.insertActivityAndMovie(activity.getId(), activityForm.getMovieList());
             }
