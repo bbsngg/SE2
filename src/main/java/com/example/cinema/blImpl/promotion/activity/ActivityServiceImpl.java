@@ -7,10 +7,12 @@ import com.example.cinema.po.promotion.Activity;
 import com.example.cinema.po.promotion.Coupon;
 import com.example.cinema.vo.promotion.ActivityForm;
 import com.example.cinema.vo.ResponseVO;
+import com.example.cinema.vo.promotion.ActivityVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -64,10 +66,11 @@ public class ActivityServiceImpl implements ActivityService, ActivityServiceForB
     @Override
     public ResponseVO getActivities() {
         try {
-            //Java8 新特性，类似python map[]
-            //.stream().map(collection -> { return resultCollection;})
-            //此处调用了Activity::getVO方法
-            return ResponseVO.buildSuccess(activityMapper.selectActivities().stream().map(Activity::getVO));
+            List<ActivityVO> list = new ArrayList<>();
+            activityMapper.selectActivities().forEach(item->{
+                list.add(item.getVO());
+            });
+            return ResponseVO.buildSuccess(list);
         } catch (Exception e) {
             e.printStackTrace();
             return ResponseVO.buildFailure("失败");
