@@ -1,6 +1,7 @@
 package com.example.cinema.blImpl.user;
 
 import com.example.cinema.bl.user.UserRoleService;
+import com.example.cinema.data.user.AccountMapper;
 import com.example.cinema.data.user.UserRoleMapper;
 import com.example.cinema.po.UserRole;
 import com.example.cinema.vo.ResponseVO;
@@ -16,6 +17,8 @@ import java.util.List;
 public class UserRoleServiceImpl implements UserRoleService,UserRoleServiceForBl{
     @Autowired
     UserRoleMapper userRoleMapper;
+    @Autowired
+    AccountMapper accountMapper;
 
     @Override
     public ResponseVO getRoleByName(String username) {
@@ -57,7 +60,7 @@ public class UserRoleServiceImpl implements UserRoleService,UserRoleServiceForBl
     @Override
     public ResponseVO deleteOneRoleById(int id) {
         try{
-            userRoleMapper.deleteOneRoleById(id);
+            UserRole userRole=userRoleMapper.selectRoleById(id);
             return ResponseVO.buildSuccess();
         }catch (Exception e){
             e.printStackTrace();

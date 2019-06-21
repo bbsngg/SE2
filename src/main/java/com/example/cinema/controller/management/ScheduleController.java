@@ -18,7 +18,7 @@ import java.util.Date;
  * @author fjj
  * @date 2019/4/11 4:13 PM
  */
-@Api(description = "拍片管理api")
+@Api(description = "排片管理api")
 @RestController
 public class ScheduleController {
     @Autowired
