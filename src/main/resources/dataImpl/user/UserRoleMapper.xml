@@ -33,4 +33,5 @@
         insert into user_roles(username,role_name)
         values (#{username},#{roleName})
     </insert>
+
 </mapper>

@@ -4,6 +4,8 @@ import com.example.cinema.po.User;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.List;
+
 /**
  * @author huwen
  * @date 2019/3/23
@@ -32,4 +34,10 @@ public interface AccountMapper {
      * @return
      */
     int deleteAccountById(int id);
+
+    /**
+     * 获取所有用户
+     * @return
+     */
+     List<User> selectAllUsers();
 }

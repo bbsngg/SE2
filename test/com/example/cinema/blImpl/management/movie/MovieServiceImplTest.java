@@ -15,39 +15,39 @@ public class MovieServiceImplTest {
     @Test
     public void addMovie() {
     }
-
+    
     @Test
     public void searchOneMovieByIdAndUserId() {
     }
-
+    
     @Test
     public void searchAllMovie() {
     }
-
+    
     @Test
     public void searchOtherMoviesExcludeOff() {
     }
-
+    
     @Test
     public void getMovieByKeyword() {
     }
-
+    
     @Test
     public void pullOfBatchOfMovie() {
     }
-
+    
     @Test
     public void updateMovie() {
     }
-
+    
     @Test
     public void getMovieById() {
     }
-
+    
     @Test
     public void selectAllMovie() {
     }
-
+    
     @Test
     public void preCheck() {
     }

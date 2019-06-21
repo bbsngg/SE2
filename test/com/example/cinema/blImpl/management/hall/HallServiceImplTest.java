@@ -19,23 +19,23 @@ public class HallServiceImplTest {
     @Test
     public void searchAllHall() {
     }
-
+    
     @Test
     public void addHall() {
     }
-
+    
     @Test
     public void updateHall() {
     }
-
+    
     @Test
     public void deleteBatchOfHall() {
     }
-
+    
     @Test
     public void getHallById() {
     }
-
+    
     @Test
     public void selectAllHall() {
     }
