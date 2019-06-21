@@ -23,4 +23,9 @@ public interface AccountService {
      */
     public UserRoleVO login(UserForm userForm);
 
+    /**
+     * 获取所有用户信息
+     * @return
+     */
+    ResponseVO selectAllUsers();
 }
