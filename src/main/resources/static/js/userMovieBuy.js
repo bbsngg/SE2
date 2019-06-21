@@ -41,13 +41,13 @@ $(document).ready(function () {
             )
         }
 
-    }
+    };
 
     window.onbeforeunload=function (e) {
         if ($('#order-state').css("display")!=="none") {
             e.returnValue=("不买票就想走？");
         }
-    }
+    };
 });
 
 //页面注入数据：影厅名称、电影票费用、开始截止日期、座位信息
