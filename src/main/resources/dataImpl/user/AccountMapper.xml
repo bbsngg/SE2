@@ -8,6 +8,9 @@
     <select id="getAccountByName" resultMap="User">
         select * from user where username=#{username}
     </select>
+    <delete id="deleteAccountById">
+        delete from user where id=#{id}
+    </delete>
 
     <resultMap id="User" type="com.example.cinema.po.User">
     </resultMap>

@@ -3,6 +3,7 @@ package com.example.cinema.blImpl.user;
 import com.example.cinema.bl.user.UserRoleService;
 import com.example.cinema.data.user.AccountMapper;
 import com.example.cinema.data.user.UserRoleMapper;
+import com.example.cinema.po.User;
 import com.example.cinema.po.UserRole;
 import com.example.cinema.vo.ResponseVO;
 import com.example.cinema.vo.UserRoleForm;
@@ -61,6 +62,10 @@ public class UserRoleServiceImpl implements UserRoleService,UserRoleServiceForBl
     public ResponseVO deleteOneRoleById(int id) {
         try{
             UserRole userRole=userRoleMapper.selectRoleById(id);
+            User user=accountMapper.getAccountByName(userRole.getUsername());
+            userRoleMapper.deleteOneRoleById(id);
+            System.out.println(user.getId());
+            accountMapper.deleteAccountById(user.getId());
             return ResponseVO.buildSuccess();
         }catch (Exception e){
             e.printStackTrace();
