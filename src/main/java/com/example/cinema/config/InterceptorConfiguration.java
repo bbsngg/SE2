@@ -20,6 +20,6 @@ public class InterceptorConfiguration implements WebMvcConfigurer {
         //拦截正常操作但是要排除swagger所需的一些请求
 
         registry.addInterceptor(new SessionInterceptor()).addPathPatterns("/**").excludePathPatterns("/swagger-ui.html","/login", "/index", "/signUp", "/register", "/error", "/**/*.css", "/**/*.js", "/**/*.png", "/**/*.gif", "/**/*.jpg", "/**/*.jpeg", "/font/**").excludePathPatterns("/swagger-ui.html","/swagger-resources","/webjars/**","/v2/**","/configuration/**");
-        registry.addInterceptor(new AdminInterceptor()).addPathPatterns("/admin/**");
+//        registry.addInterceptor(new AdminInterceptor()).addPathPatterns("/admin/**");
     }
 }
